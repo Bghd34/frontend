@@ -12,7 +12,7 @@ export class UserService {
   private users: any[] = [
     {
       login: 'admin',
-      pass: '0000'
+      pass: 'admin'
     },
     {
       login: 'user',
