@@ -1,0 +1,79 @@
+<div class="container">
+  <ng-container *ngIf="internForm; else loading">
+    <form [formGroup]="internForm" (ngSubmit)="onSubmit()">
+      <fieldset title="Identité">
+        <legend>Identité</legend>
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput formControlName="name" placeholder="Intern name..." autocomplete="do-not-fill">
+            <mat-error *ngIf="c['name'].errors && c['name'].touched || c['name'].dirty">
+              <span *ngIf="c['name'].hasError('required')">Name is required...</span>
+              <span *ngIf="c['name'].hasError('minlength')">Name must have at least 2 chars</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput formControlName="firstName" placeholder="Intern first name..." autocomplete="do-not-fill">
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput type="email" formControlName="email" placeholder="Intern email..." autocomplete="do-not-fill">
+            <mat-error *ngIf="c['email'].errors && c['email'].touched || c['email'].dirty">
+              <span *ngIf="c['email'].hasError('required')">Email is required...</span>
+              <span *ngIf="c['email'].hasError('pattern')">Not an email pattern...</span>
+              <span *ngIf="c['email'].hasError('alreadyExists')">Cannot use this already
+                taken email !</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput formControlName="phoneNumber" placeholder="Intern phone number..." autocomplete="do-not-fill">
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput type="date" formControlName="birthDate" placeholder="Intern birth date..." autocomplete="do-not-fill">
+            <mat-error *ngIf="c['birthDate'].errors && c['birthDate'].touched || c['birthDate'].dirty">
+              <span *ngIf="c['birthDate'].hasError('required')">Birthdate is required...</span>
+              <span *ngIf="c['birthDate'].hasError('dateNotLessThan')">Birthdate cannot be superior than today...</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </fieldset>
+      <fieldset title="Affectations">
+        <div class="form-group">
+          <legend>Affectations</legend>
+          <div class="form-group">
+            <p>Affecter aux POE</p>
+            <mat-selection-list formControlName="poes">
+              <mat-list-option *ngFor="let poe of poes" [value]="poe">
+                {{ poe.name }}
+              </mat-list-option>
+            </mat-selection-list>
+            <mat-error *ngIf="c['poes'].errors && c['poes'].touched || c['poes'].dirty">
+              <span *ngIf="c['poes'].hasError('required')">Poes is required...</span>
+            </mat-error>
+          </div>
+      </div>
+      </fieldset>
+
+
+      <button mat-raised-button color="accent" [disabled]="internForm.invalid">Save</button>
+    </form>
+  </ng-container>
+
+
+
+  <ng-template #loading>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+</div>
+
+

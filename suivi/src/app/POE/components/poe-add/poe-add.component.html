@@ -1,0 +1,13 @@
+
+<form [formGroup]="poeForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>title</mat-label>
+    <input type="text" formControlName="title" placeholder="title" matInput>
+  </mat-form-field>
+
+  <button type="submit" [disabled]="!poeForm.valid" mat-raised-button color="primary" mat-button >Save</button>
+  <button mat-button mat-raised-button color="warn" type="button" (click) = "onReset()">Cancel</button>
+</form>
+
+
+

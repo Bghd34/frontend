@@ -1,0 +1,22 @@
+<span>
+  <button mat-raised-button color="accent" [routerLink]="['/','poe','manage','add']">Add POE</button>
+</span>
+
+<p></p>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th><th>Title</th><th>StartDate</th><th>EndDate</th><th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let poe of poes">
+      <td>{{poe.id}}</td>
+      <td><a [routerLink]="['/','poe', poe.id]">{{poe.name}}</a></td>
+      <td>{{poe.startDate | date:'shortDate'}}</td>
+      <td>{{poe.endDate | date:'shortDate'}}</td>
+      <td><button mat-stroked-button color="accent" (click)="onDelete(poe)">X</button></td>
+
+    </tr>
+  </tbody>
+</table>

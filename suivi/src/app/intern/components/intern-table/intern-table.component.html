@@ -1,0 +1,43 @@
+
+
+  <span>
+    <button mat-raised-button color="accent" [routerLink]="['/','intern','manage','add']">Add Intern</button>
+  </span>
+  <div>
+    <h2>Interns list</h2>
+
+    <table mat-table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th (click)="sortByName()">Lastname</th>
+          <th>Firstname</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>&nbsp;</th>
+          <th>&nbsp;</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let intern of interns">
+          <td>{{ intern.id }}</td>
+          <td>
+            <!--{{intern | initials}} -->
+            <a [routerLink]="['/', 'intern', intern.id]">{{ intern.name | uppercase }}</a>
+          </td>
+          <td>{{ intern.firstName }}</td>
+          <td>{{ intern.email }}</td>
+          <td>{{ intern.phoneNumber }}</td>
+          <td><span (click)="onDelete(intern)">
+            <div appInitials [initial]=" intern | initials" [config]="bubbleConfig">
+            </div>
+          </span></td>
+          <td><button (click)="onEdit(intern)">Edit</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+

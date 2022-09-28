@@ -1,0 +1,21 @@
+<div class="container">
+  <form [formGroup]="signinForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput formControlName="login" placeholder="Your login...">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" formControlName="password" placeholder="Your password...">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" [disabled]="signinForm.invalid">Signin</button>
+    <button class="btn btn-warning m-2" (click)="reset()" >Cancel</button>
+  </form>
+</div>
+
+
+
+
+
+
+
+

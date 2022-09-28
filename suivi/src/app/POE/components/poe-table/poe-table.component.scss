@@ -1,0 +1,30 @@
+span {
+  margin-left: 2%;
+}
+table {
+  margin-top: 50px;
+  margin-left: 2%;
+  width: 96%;
+  border-collapse: collapse;
+  thead {
+    background-color:blueviolet;
+    height : 3em;
+    line-height: 3em;
+    tr {
+      th {
+        text-align: left;
+        border-bottom-style: solid;
+        border-bottom-color: #000;
+        border-bottom-width: 0.13em;
+        color:azure
+      }
+    }
+  }
+  tbody {
+    tr:nth-child(even){
+      background-color: hsl(200, 25%, 60%);
+    }
+  }
+}
+
+

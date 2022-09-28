@@ -1,0 +1,30 @@
+<p>
+  <mat-toolbar color="primary">
+    <span>{{title}}</span>
+    <span class="example-spacer"></span>
+    <button mat-stroked-button>
+      <span>interns : {{itemNumber$ | async}}</span>
+    </button>
+    <span class="example-spacer"></span>
+    <span *ngIf="userService.isAuthenticated()" class="space">
+      <button mat-flat-button color="accent" (click)="userService.signout()">
+        <mat-icon>person</mat-icon><mat-icon>logout</mat-icon>
+      </button>
+    </span>
+    <div *ngIf="!userService.isAuthenticated()" class="space">
+      <button mat-flat-button color="accent" [routerLink]="['/signin']"><mat-icon>login</mat-icon></button>
+    </div>
+  </mat-toolbar>
+  <mat-toolbar-row>
+    <button [routerLink]="['/','interns']" mat-stroked-button color="accent">INTERNS</button>
+    <button [routerLink]="['/','poes']" mat-stroked-button color="accent">POES</button>
+  </mat-toolbar-row>
+</p>
+
+
+
+
+
+
+
+

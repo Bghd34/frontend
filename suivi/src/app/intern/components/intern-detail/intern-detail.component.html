@@ -1,0 +1,25 @@
+<h2>Intern detail</h2>
+
+<ng-container *ngIf="intern; else notFound">
+  <div>
+    <div appInitials [initial]=" intern | initials" [config]="bubbleConfig">
+    </div>
+    <p>Name : {{ intern.name }}</p>
+    <p>FirstName : {{ intern.firstName }}</p>
+    <p>Birthdate : {{ intern.birthDate }} ({{intern.birthDate! | age | async}})</p>
+    <p>Email : {{ intern.email }}</p>
+    <p>Phone : {{ intern.phoneNumber }}</p>
+    <p>Address : {{ intern.address }}</p>
+  </div>
+</ng-container>
+<button type="button" (click)="navigate()">Go Home</button>
+
+<div>
+  <a [routerLink]="['/', 'interns']">Retour à la liste</a>
+</div>
+
+<ng-template #notFound>
+  <div>
+    Sorry, but no Intern does match to {{ id }} #
+  </div>
+</ng-template>

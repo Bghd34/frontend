@@ -1,0 +1,28 @@
+
+<div>
+  <button mat-raised-button color="accent" [routerLink]="['/','poes']">Display poes</button>
+ </div>
+ <br>
+<ng-container *ngIf="poe; else notFound">
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th><th>Title</th><th>StartDate</th><th>EndDate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{poe.id}}</td>
+          <td>{{poe.name}}</td>
+          <td>{{poe.startDate | date:'shortDate'}}</td>
+          <td> {{poe.endDate | date:'shortDate'}}</td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+</ng-container>
+<ng-template #notFound>
+  Sorry, no POE does match to {{_id}}
+</ng-template>
