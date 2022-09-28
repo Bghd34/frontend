@@ -10,7 +10,7 @@ import { Intern } from 'src/app/core/models/intern';
 import * as moment from 'moment';
 
 export class InternFormBuilder {
-  private form!: FormGroup;
+  private form!: FormGroup; //
   private addPoes: boolean = false;
   private _poes: POE[] | null = null;
   private intern: Intern = new Intern(); // the intern we want to manage (empty Model first)
