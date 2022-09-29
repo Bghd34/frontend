@@ -16,7 +16,7 @@ export class UserService {
     },
     {
       login: 'user',
-      pass: '0000'
+      pass: 'user'
     },
 
   ];
